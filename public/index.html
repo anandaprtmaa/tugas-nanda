@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,800&family=Montserrat:wght@400;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="table">
+    <h1>❤ 😍 BIODATAKU 😍 ❤ </h1>
+        <img src="./122.jpg" alt="">
+    
+    <p>
+    Namanya adalah Ananda Pratama Indra Buana, lahir di Jakarta , 27 Oktober 2002, ia adalah anak pertama dari dua bersaudara, buah dari pasangan Mr.S dan Ms.S . Ananda adalah panggilan akrabnya, ia terlahir di keluarga yang Sederhana. Ayahnya seorang Karyawan Swasta di sebuah Perusahaan Periklanan di Jakarta, sedangkan ibunya adalah IRT (Ibu Rumah Tangga). Sejak kecil dia selalu dinasihati ayahnya untuk selalu rajin beribadah, jujur, dan baik terhadap sesama.</p>
+    <table>    
+    </table>
+
+
+    <script>
+        async function panggil(){
+            const nanda= await fetch("/api/biodata");
+            const prat=await nanda.json();
+            let i =0;
+            const tabel = document.querySelector("table");
+            for(let uzumy in prat){
+                const tr = document.createElement("tr"); 
+                console.log(prat[uzumy]);
+                prat[uzumy].forEach(e => {
+                        console.log(e);
+                if(i===0){
+                    const th = document.createElement("th"); 
+                    th.textContent=e;
+                    tr.appendChild(th);
+                }else{
+                    const td = document.createElement("td"); 
+                    td.textContent=e;
+                    tr.appendChild(td);
+                }
+                i++;
+                });
+                tabel.appendChild(tr);
+                i=0;
+            }
+        }
+        panggil();
+        </script>
+</div>
+</body>
+</html>
